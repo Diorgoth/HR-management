@@ -3,13 +3,12 @@ package com.example.demo.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedBy;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
-import java.util.UUID;
+import java.sql.Timestamp;
+
 
 @Data
 @AllArgsConstructor
@@ -24,13 +23,10 @@ public class Turniket {
 
     private boolean status;
 
-    @CreatedBy
-    private UUID createdBy;             // ishga kiruvchi user
+    private String location;
 
-    @NotNull
-    private LocalDateTime enterDateTime;
-
-    private LocalDateTime exitDateTime;
+    @CreationTimestamp
+    private Timestamp createdAt;
 
 
 }
